@@ -10,13 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void* ft_memcpy(void *dst, const void *src, size_t n)
-{
-	void *temp;
+#include "libft.h"
 
-	temp = src;
-	while (src != dst)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	unsigned char	*d;
+	unsigned char	*s;	
+
+	d = dst;
+	s = src;
+	if (d < s || d >= (s + n))
 	{
-		
+		while (n--)
+		{
+			*(d++) = *(s++);
+		}
 	}
+	else
+	{
+		d += n;
+		s += n;
+		while (n--)
+		{
+			*(--d) = *(--s);
+		}
+	}
+	return (dst);
 }
