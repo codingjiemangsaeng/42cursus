@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcmp.c                                           :+:      :+:    :+:   */
+/*   calloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihyjeon <jihyjeon@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 13:51:29 by jihyjeon          #+#    #+#             */
-/*   Updated: 2023/10/11 13:51:31 by jihyjeon         ###   ########.fr       */
+/*   Created: 2023/10/11 13:51:46 by jihyjeon          #+#    #+#             */
+/*   Updated: 2023/10/11 13:52:01 by jihyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*one;
-	unsigned char	*two;
+	void	*str;
 
-	one = s1;
-	two = s2;
-	while ((*one || *two) && n--)
-	{
-		if (*one != *two)
-			return (*(unsigned char *)one - *(unsigned char *)two);
-		one++;
-		two++;
-	}
-	return (*(unsigned char *)(one - 1) - *(unsigned char *)(two - 1));
+	str = malloc(count * size);
+	ft_bzero(str, count);
+	return (str);
 }
