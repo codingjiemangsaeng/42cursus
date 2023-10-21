@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihyjeon <jihyjeon@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 13:51:23 by jihyjeon          #+#    #+#             */
-/*   Updated: 2023/10/11 13:51:25 by jihyjeon         ###   ########.fr       */
+/*   Created: 2023/10/19 18:43:48 by jihyjeon          #+#    #+#             */
+/*   Updated: 2023/10/19 18:43:53 by jihyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	idx;
-
-	idx = ft_strlen(s);
-	while (idx)
+	if (n == -2147483648)
 	{
-		if (*(s + idx) == (char)c)
-			return (s + idx);
-		s--;
+		ft_putchr('-');
+		ft_putchr('2');
+		n = 147483648;
+		ft_putnbr_fd(n);
 	}
-	return (0);
+	else if (n < 0)
+	{
+		ft_putchr('-');
+		ft_putnbr_fd(-n);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10);
+		ft_putnbr_fd(n % 10);
+	}
+	else
+		ft_putchr(n + 48);
 }

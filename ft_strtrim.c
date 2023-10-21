@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihyjeon <jihyjeon@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 13:51:23 by jihyjeon          #+#    #+#             */
-/*   Updated: 2023/10/11 13:51:25 by jihyjeon         ###   ########.fr       */
+/*   Created: 2023/10/19 18:43:15 by jihyjeon          #+#    #+#             */
+/*   Updated: 2023/10/19 18:44:07 by jihyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	idx;
+	char	*t_str;
+	char	*tmp;
 
-	idx = ft_strlen(s);
-	while (idx)
-	{
-		if (*(s + idx) == (char)c)
-			return (s + idx);
-		s--;
-	}
-	return (0);
+	tmp = s1;
+	while (*tmp)
+		tmp++;
+	while (ft_strchr(set, *s1) != 0)
+		tmp--;
+	while (ft_strchr(set, *s1) != 0)
+		s1++;
+	t_str = (char *)malloc(sizeof(char) * ((size_t)(tmp - s1) + 1));
+	ft_strlcpy(t_str, s1, tmp - s1 + 1);
+	return (t_str);
 }
