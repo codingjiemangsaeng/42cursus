@@ -15,11 +15,14 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list	*tmp;
 
 	while (lst)
 	{
-		
+		new = (t_list *)malloc(sizeof(t_list));
+		if (!new)
+			return (0);
+		new->content = (*f)(lst->content);
+
 	}
 	return (new);
 }
