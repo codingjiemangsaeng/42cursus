@@ -6,11 +6,11 @@
 /*   By: jihyjeon < jihyjeon@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:51:47 by jihyjeon          #+#    #+#             */
-/*   Updated: 2023/11/01 14:28:16 by jihyjeon         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:11:49 by jihyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -24,5 +24,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		ft_lstdelone(*lst, (*del));
 		*lst = tmp;
 	}
-	*lst = 0;
 }

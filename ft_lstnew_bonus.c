@@ -6,11 +6,11 @@
 /*   By: jihyjeon < jihyjeon@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:51:04 by jihyjeon          #+#    #+#             */
-/*   Updated: 2023/10/26 21:07:14 by jihyjeon         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:11:49 by jihyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {
