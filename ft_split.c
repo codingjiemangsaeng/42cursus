@@ -14,19 +14,12 @@
 
 int	ch_sep(char sc, char c)
 {
-	int	i;
-
-	i = 0;
-	while (c)
-	{
-		if (c == sc)
-			return (1);
-		i++;
-	}
+	if (c == sc)
+		return (1);
 	return (0);
 }
 
-int	s_cnt(char *str, char chr)
+int	s_cnt(const char *str, char chr)
 {
 	int	i;
 	int	j;
@@ -42,7 +35,7 @@ int	s_cnt(char *str, char chr)
 	return (j);
 }
 
-int	s_len(char *str, char c)
+int	s_len(const char *str, char c)
 {
 	int		i;
 
@@ -56,7 +49,7 @@ int	s_len(char *str, char c)
 	return (i);
 }
 
-char	*c_arr(char *str, char c)
+char	*c_arr(const char *str, char c)
 {
 	int		i;
 	int		len;

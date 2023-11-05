@@ -21,8 +21,6 @@ void	ft_itoa_base(long long num, char *arr)
 
 void	i_len(long long num, int *cnt)
 {
-	int	nob;
-
 	if (num < 0)
 	{
 		num *= -1;

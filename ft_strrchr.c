@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (idx)
 	{
 		if (*(s + idx) == (char)c)
-			return (s + idx);
+			return ((char *)(s + idx));
 		s--;
 	}
 	return (0);
