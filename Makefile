@@ -60,17 +60,15 @@ endif
 
 all: ${NAME}
 
+bonus:
+	sleep 1
+	${MAKE} WITH_BONUS=1 all
+
 ${NAME}: ${OBJ_SWITCH}
 	${LIBC} $@ $^
 
-bonus:
-	${MAKE} WITH_BONUS=1 ${NAME}
-
 %.o: %.c ${INC}/${HEADER}
 	${CC} ${CFLAGS} -c $< -o $@ -I${INC}
-
-${NAME}: ${OBJS}
-	${LIBC} ${NAME} ${OBJS}
 
 clean:
 	${RM} ${OBJS} ${OBJS_B}
@@ -80,4 +78,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus

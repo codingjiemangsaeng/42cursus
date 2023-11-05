@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jihyjeon <jihyjeon@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jihyjeon < jihyjeon@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:46:51 by jihyjeon          #+#    #+#             */
-/*   Updated: 2023/10/11 13:47:06 by jihyjeon         ###   ########.fr       */
+/*   Updated: 2023/11/05 20:33:14 by jihyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (dstsize < dest_len)
 		return (src_len + dstsize);
 	dst += dest_len;
-	ft_strlcpy(dst, src, dstsize - dest_len - 1);
+	ft_strlcpy(dst, src, dstsize - dest_len);
 	return (src_len + dest_len);
 }
-
