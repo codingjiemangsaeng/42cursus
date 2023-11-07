@@ -6,7 +6,7 @@
 /*   By: jihyjeon < jihyjeon@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:43:21 by jihyjeon          #+#    #+#             */
-/*   Updated: 2023/11/05 18:53:25 by jihyjeon         ###   ########.fr       */
+/*   Updated: 2023/11/07 21:24:46 by jihyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_itoa_base(long long num, char *arr)
 	*arr = num % 10 + '0';
 }
 
-void	i_len(long long num, int *cnt)
+void	itgr_len(long long num, int *cnt)
 {
 	if (num < 0)
 	{
@@ -29,26 +29,28 @@ void	i_len(long long num, int *cnt)
 	if (num / 10 != 0)
 	{
 		(*cnt)++;
-		i_len (num / 10, cnt);
+		itgr_len (num / 10, cnt);
 	}
 }
 
 char	*ft_itoa(int n)
 {
-	char	*arr;
-	int		cnt;
+	char		*arr;
+	int			cnt;
+	long long	long_n;
 
 	cnt = 1;
-	i_len(n, &cnt);
+	long_n = (long long)n;
+	itgr_len(long_n, &cnt);
 	arr = (char *)malloc(sizeof(char) * (cnt + 1));
 	if (!arr)
 		return (0);
-	if (n < 0)
+	else if (long_n < 0)
 	{
 		*arr = '-';
-		n *= -1;
+		long_n *= -1;
 	}
-	ft_itoa_base(n, arr + cnt - 1);
+	ft_itoa_base(long_n, arr + cnt - 1);
 	*(arr + cnt) = 0;
 	return (arr);
 }
