@@ -6,43 +6,37 @@
 /*   By: jihyjeon < jihyjeon@student.42seoul.kr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:43:18 by jihyjeon          #+#    #+#             */
-/*   Updated: 2023/11/07 22:28:45 by jihyjeon         ###   ########.fr       */
+/*   Updated: 2023/11/09 14:46:59 by jihyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ch_sep(char sc, char c)
-{
-	if (c == sc)
-		return (1);
-	return (0);
-}
-
 size_t	s_cnt(const char *str, char chr)
 {
-	size_t	i;
-	size_t	j;
+	size_t	num;
 
-	i = 0;
-	j = 1;
-	while (str[i])
+	num = 0;
+	while (*str)
 	{
-		if (ch_sep(str[i], chr) && !(ch_sep(str[i + 1], chr)))
-			j++;
-		i++;
+		while (*str && (*str == chr))
+			str++;
+		if (*str)
+			num++;
+		while (*str && !(*str == chr))
+			str++;
 	}
-	return (j);
+	return (num);
 }
 
 size_t	s_len(const char *str, char c)
 {
-	size_t	i;
+	size_t		i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (ch_sep(str[i], c))
+		if (str[i] == c)
 			return (i);
 		i++;
 	}
@@ -82,14 +76,14 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (*s != 0)
 	{
-		while (*s != 0 && ch_sep(*s, c))
+		while (*s != 0 && (*s == c))
 			s++;
 		if (*s != 0)
 		{
 			arr[i] = c_arr(s, c);
 			i++;
 		}
-		while (*s != 0 && !(ch_sep(*s, c)))
+		while (*s != 0 && !(*s == c))
 			s++;
 	}
 	arr[i] = 0;
