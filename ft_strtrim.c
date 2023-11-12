@@ -15,33 +15,20 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*t_str;
-	char	*tmp;
+	char	*end;
 
-	tmp = (char *)s1 + ft_strlen(s1) - 1;
+	if (!s1 || !set)
+		return (0);
+	end = (char *)s1 + ft_strlen(s1) - 1;
 	while (*s1 && ft_strchr(set, *s1))
 		s1++;
-	while (ft_strchr(set, *tmp))
-		tmp--;
-	t_str = (char *)malloc(sizeof(char) * ((size_t)(tmp - s1 + 2)));
+	while (ft_strchr(set, *end))
+		end--;
+	if (s1 > end)
+		return (ft_strdup(""));
+	t_str = (char *)malloc(sizeof(char) * (end - s1 + 2));
 	if (!t_str)
 		return (0);
-	ft_strlcpy(t_str, s1, tmp - s1 + 2);
+	ft_strlcpy(t_str, s1, end - s1 + 2);
 	return (t_str);
 }
-
-// char	*ft_strtrim(char const *s1, char const *set)
-// {
-// 	char	*t_str;
-// 	char	*tmp;
-
-// 	while (*s1)
-// 	{
-// 		while (*s1 && ft_strchr(set, *s1))
-// 			s1++;
-// 		if (*s1)
-// 			tmp = s1;
-// 		while (*s1 && ft_strchr(set, *s1))
-// 			s1++;
-// 	}
-// 	return (t_str);
-// }
