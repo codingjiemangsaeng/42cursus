@@ -61,7 +61,6 @@ endif
 all: ${NAME}
 
 bonus:
-	sleep 1
 	${MAKE} WITH_BONUS=1 all
 
 ${NAME}: ${OBJ_SWITCH}
